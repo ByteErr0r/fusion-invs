@@ -9,6 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
+import java.io.IOException;
+
 public class WindowA implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e){
@@ -19,6 +21,12 @@ public class WindowA implements Listener {
 
             YamlConfiguration config = YamlConfiguration.loadConfiguration(Main.getFammiParlare().invFile);
             config.set("invs." + p.getName(), e.getInventory().getContents());
+            try{
+                config.save(Main.getFammiParlare().invFile);
+            }catch (IOException ex){
+                System.out.println("NOOOO, le exception mi spaventano!");
+            }
+
         }
 
         e.getWhoClicked().sendMessage("§cHAI FLAGGATO WINDOW A (strano vero?)");

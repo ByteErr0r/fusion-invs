@@ -28,6 +28,10 @@ public class Main extends JavaPlugin {
 
         System.out.println("Il campanile è stato buildato!");
     }
+    @Override
+    public void onDisable(){
+        System.out.println("Il campanile è caduto, vado a ricostruirlo. P.S. PRENDETEMIGRAZIEs3nn0r1c4d3");
+    }
 
     public static Main getFammiParlare() {
         return fammiParlare;
